@@ -9,6 +9,6 @@ int main()
     ptr = &var;
     int i=1;
     printf("%d\n",*ptr);
-    // free(ptr);
+    free(ptr);
     return 0;
 }

@@ -17,9 +17,14 @@ void strreverse(char str[])
     len2= len-1;
     for(i=0;i<len/2;i++)
     {
-        temp = str[i];
-        str[i] = str[len2];
-        str[len2--]= temp;
+        str[i] = str[i]^str[len2];
+        str[len2]=str[i]^str[len2];
+        str[i]=str[i]^str[len2];
+        len2--;
+
+        // temp = str[i];
+        // str[i] = str[len2];
+        // str[len2--]= temp;
     }
 
 }
