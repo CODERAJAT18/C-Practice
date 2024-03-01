@@ -23,22 +23,38 @@ int StrFindStr(char *str1, char *str2)
     {
         if(*str2==*str1)
         {
+            count =0;
             for(int i=0;i<StrLength(str2);i++)
             {
-                if(*(str2+i)==*(str1+i) && count <StrLength(str2))
+                if(*(str2+i)==*(str1+i) && count<StrLength(str2))
                 {
                     count++;
                 }
             }
+            if(count==StrLength(str2))
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
     str1++;
     }
-    if(count==StrLength(str2))
+}
+// StrReverse Function should be used to set the given string in reverse order.
+void StrReverse(char *str)
+{
+    int len,len2,i,temp;
+    len = StrLength(str);
+    len2= len-1;
+    for(i=0;i<len/2;i++)
     {
-        return 1;
+        *(str+i) = *(str+i)^*(str+len2);
+        *(str+len2)=*(str+i)^*(str+len2);
+        *(str+i)=*(str+i)^*(str+len2);
+        len2--;
     }
-    else
-    {
-        return 0;
-    }
+
 }
